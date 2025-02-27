@@ -1,0 +1,18 @@
+
+    <p [ngClass]="{
+        'alert-container':true,
+        'alert-warning':this.variant=='warning',
+        'alert-danger':this.variant=='danger',
+        'alert-success':this.variant=='success',
+        'mx-auto':true,
+    }"> <ng-container *ngIf="variant=='danger'">
+      <i class="bi bi-bug mr-2"  ></i>    
+</ng-container>
+
+<ng-container *ngIf="variant=='warning'">
+    <i class="bi bi-exclamation-diamond mr-2"></i>
+</ng-container>
+<ng-container *ngIf="variant=='success'">
+    <i class="bi bi-check-circle mr-2"></i>
+</ng-container>
+{{message}}</p>

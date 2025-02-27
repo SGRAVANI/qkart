@@ -1,0 +1,116 @@
+/* You can add global styles to this file, and also import other style files */
+/* .lato-regular {
+    font-family: "Lato", serif;
+    font-weight: 400;
+    font-style: normal;
+  } */
+   :root{
+    
+    --qkart-primary:#00a278;
+   }
+  body{
+    font-family: "Lato", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+.content {
+  background-image: url("../src/assets/hero_image.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.form-container{
+  display: flex;
+  
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap:1.2rem;
+  
+}
+.form {
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  min-width: 80%;
+  margin: 2rem;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  color: #00a278;
+}
+
+.secondary-action {
+  padding: 1rem 0;
+}
+
+.link {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.link:focus {
+  color: #00a278;
+}
+
+.link:active {
+  color: #45c09f;
+}
+
+.link:visited {
+  color: #45c09f;
+}
+
+/* .button {
+  background-color: #00a278 !important;
+}
+
+.button:hover {
+  background-color: #00845c !important;
+} */
+
+.textField{
+  width:100%;
+  padding:25px 15px;
+}
+.btn-filled{
+  color: #fff;
+  background-color: var(--qkart-primary);
+  
+  border-color: var(--qkart-primary);
+}
+
+.btn-filled:hover,.btn-filled:focus,.btn-filled:focus-within,.btn-outline-warning:hover, .btn-outline-warning:focus,.btn-outline-warning:active{
+  color: white !important;
+  filter: brightness(1.1);
+  box-shadow:0 0 0 .2rem rgba(24, 170, 132, .5);
+}
+
+@media screen and (min-width: 768px) {
+  .content {
+      justify-content: flex-end;
+  }
+  .form {
+      min-width: 24rem;
+  }
+}
+
+

@@ -1,0 +1,113 @@
+
+<app-header></app-header>
+<div class="container-fluid">
+    <div class="row">
+
+<div [ngClass]="{
+    'col-md-7':true,
+    'col-sm-12':true,
+    'col-lg-9':true}">
+
+<div class="shipping-container" style="min-height: 100vh;">
+    <h4 style="color:#3C3C3C; margin-top:1rem;margin-bottom: 1rem;" >
+      Shipping
+    </h4>
+    <p style="color:#3C3C3C; margin-top:1rem;margin-bottom: 1rem;">
+      Manage all the shipping addresses you want. This way you won't
+      have to enter the shipping address manually with every order.
+      Select the address you want to get your order delivered.
+    </p>
+    <hr />
+    <ng-container *ngIf="adresses.length>0">
+     <ng-container *ngFor="let address of adresses;let i=index">
+
+        <div [ngClass]="{
+            'address-item':true,
+            'selected':seltectedAddress.selected==address._id,
+            'not-selected':seltectedAddress.selected!=address._id    
+        }" 
+        (click)="setAdddreses(address._id)">
+             <div style="display: flex; justify-content: space-between; align-items: center; gap:1rem; width: 100%;">                                
+            <p >{{address.address}}</p>
+            <Button   class="btn btn-sm btn-outline-qkart" 
+            (click)="deleteAddress(address._id)"
+           >
+           <div><i class="bi bi-trash3-fill mr-2"></i>DELETE</div>
+           </Button> 
+            </div>
+        </div>
+     </ng-container>
+    </ng-container>
+
+    <ng-container *ngIf="adresses.length==0">
+        <div style="margin-top:1rem;margin-bottom: 1rem;">
+            No addresses found for this account. Please add one to proceed
+        </div>
+    </ng-container>
+    
+    <ng-container *ngIf="addAddressFlag==false">
+        <button
+                class="btn btn-filled btn-lg"
+                id="add-new-btn"
+                (click)="handleOpenNewAddressForm();"
+                
+              >
+                Add new address
+    </button>
+    </ng-container>
+    <ng-container *ngIf="addAddressFlag">
+        <div class="address-container">
+          <textarea
+            style="padding:0.5rem;"
+            [(ngModel)]="newAdress"
+            rows="4"
+            placeholder="Enter your complete address"
+          ></textarea>
+          <div class="button-group">
+            <button class="btn btn-filled" (click)="addAddress()">ADD</button>
+            <button class="btn btn-outline-warning" (click)="handleCancelAddress()">CANCEL</button>
+          </div>
+        </div>
+      </ng-container>
+    
+      <h4  class="section-style">
+        Payment
+      </h4>
+      <p class="section-style">
+        Payment Method
+      </p>
+      <hr />
+      <div style="margin:1rem 0;">
+        <p>Wallet</p>
+        <p>
+          Pay ${{findCartTotalAmount()+" of available $"+balance}}
+        </p>
+      </div>
+
+      <button
+       class="btn btn-filled"
+      (click)="performCheckout()"
+      
+      >
+      <i class="bi bi-credit-card-2-front mr-2"></i>  PLACE ORDER
+    </button>
+
+
+
+</div>
+
+  
+
+
+</div>
+<div class="col-md-5 col-lg-3" style=" background-color: rgb(233,245,225);
+      ">
+            <app-cart [readOnly]="true"></app-cart>
+          </div>
+</div>
+</div>
+<app-footer></app-footer>
+<ng-container *ngIf="message" >
+    <app-display-alert [variant]="variant" [message]="message" />
+  </ng-container>
+  

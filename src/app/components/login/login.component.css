@@ -1,0 +1,6 @@
+.content p{
+    margin-bottom:0 !important;
+}
+input.ng-invalid.ng-touched{
+    border-color:red;
+}

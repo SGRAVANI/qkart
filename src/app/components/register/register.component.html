@@ -1,0 +1,81 @@
+
+<section class="login-container">
+    <app-header>
+        <button type="button" class="btn btn-outline btn-sm" #back style="color:var(--qkart-primary); display: flex; gap:0.5rem;"
+        (click)="redirectToHome();"
+        ><span><i class="bi bi-arrow-left"></i></span>Back To Explore</button>
+    </app-header>
+
+    <div class="content">
+        <form  class="form form-container" [formGroup]="registerForm" (ngSubmit)="handleRegister()" >
+        <h2 class="title">Register</h2>
+    
+    
+        
+        
+       <div style="width:100%; position: relative;">
+        <div style="width: 100%;">
+        <input class="form-control textField"
+            name="username"
+           formControlName="username"
+        type="text"
+    placeholder="username"    
+    
+  /></div>
+  <small *ngIf="registerForm.controls['username'].hasError('minlength') && registerForm.controls['password'].touched " class="form-text text-muted pl-2" style="font-size: 12px;color:red !important;margin:0; position: absolute;">username must be atleast 6 characters length</small>
+  </div>
+  <div style="width:100%; position: relative;" >
+    <div style="width: 100%;">
+    <input class="form-control textField"
+          name="password"
+          formControlName="password"
+          type="password"
+          
+          
+          placeholder="password"
+        />
+      </div>
+      <div>
+        <small *ngIf="registerForm.controls['password'].hasError('minlength') && registerForm.controls['password'].touched " class="form-text text-muted pl-2" style="font-size: 12px;color:red !important;position: absolute;margin:0">Password must be atleast 6 characters length</small>
+        </div>
+        </div>
+        <input class="form-control textField"
+          id="cnfpassword"
+          
+          name="cnfpassword"
+          type="password"
+          formControlName="cnfpassword"
+          
+          placeholder="Confirm password"
+        /> 
+        <ng-container  *ngIf="isLoading==true">
+          <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
+            <app-circular-icon [size]="true"></app-circular-icon>
+          </div>
+         </ng-container>    
+   <ng-container *ngIf="isLoading==false">
+    <button class="btn btn-filled" style="width:100%"   >
+      REGISTER TO QKART
+     </button>
+   </ng-container>
+   
+  
+  <p class="secondary-action">
+    Already have an account?
+    
+     <a  [routerLink]="['/login']" class="link" >
+      Login here
+     </a>
+    
+  </p>
+</form>
+</div>
+
+<footer>
+    <app-footer></app-footer>
+</footer>
+    
+</section>
+<ng-container *ngIf="message" >
+  <app-display-alert [variant]="variant" [message]="message" />
+</ng-container>

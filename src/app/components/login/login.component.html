@@ -1,0 +1,74 @@
+
+
+<section class="login-container">
+    <app-header>
+        <button type="button" class="btn btn-outline btn-sm" #back style="color:var(--qkart-primary); display: flex; gap:0.5rem;" (click)="redirectToHome();"><span><i class="bi bi-arrow-left"
+          
+          ></i></span>Back To Explore</button>
+    </app-header>
+
+    <div class="content">
+        <form  class="form form-container" 
+         #loginForm="ngForm"
+        
+        (ngSubmit)="handleSubmit(loginForm);">
+        <h2 class="title">Login</h2>
+    
+    
+        
+        <input class="form-control textField"
+            id="username"
+            name="username"
+        type="text"
+    placeholder="username"    
+    [(ngModel)]="user.username"
+    required
+  />
+  <input class="form-control textField"
+          id="password"
+          
+          name="password"
+          type="password"
+          required=""
+           [(ngModel)]="user.password"
+          placeholder="password"
+        /> 
+       <ng-container  *ngIf="isLoading==true">
+        <div style="display: flex; align-items: center; justify-content: center; width: 100%;">
+          <app-circular-icon [size]="true"></app-circular-icon>
+        </div>
+       </ng-container>  
+      <ng-container *ngIf="isLoading==false">
+        <button type="submit" class="btn btn-filled" style="width:100%" variant="contained"
+        [disabled]="loginForm.invalid "
+        >
+         LOGIN TO QKART
+        </button>
+      </ng-container>
+      
+  
+  <p class="secondary-action">
+    Don't have an account?
+    
+     <a [routerLink]="['/register']" class="link" >
+      Register Now
+     </a>
+    
+  </p>
+  
+  
+</form>
+
+</div>
+
+<footer>
+    <app-footer></app-footer>
+</footer>
+    
+</section>
+<ng-container *ngIf="message" >
+  <app-display-alert [variant]="variant" [message]="message" />
+</ng-container>
+
+
+    

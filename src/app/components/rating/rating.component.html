@@ -1,0 +1,10 @@
+<div class="rating-container">
+<ng-container *ngFor="let ele of filled">
+    <app-startfilled></app-startfilled>
+</ng-container>
+<ng-container *ngIf="empty.length>0">
+    <ng-container *ngFor="let ele of empty">
+        <app-startempty></app-startempty>
+    </ng-container>
+</ng-container>
+</div>

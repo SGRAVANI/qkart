@@ -1,0 +1,41 @@
+<app-header (onChangeInput)="handleChange($event)"/>
+<app-herosection/>
+ <ng-container *ngIf="products.length==0 && searchInput.length==0">
+  <app-circularprogress ></app-circularprogress>
+</ng-container> 
+
+<ng-container *ngIf="searchStatus.length!=0">
+  <app-not-found-product></app-not-found-product>
+</ng-container> 
+   <div class="container-fluid">
+    <div class="row">
+
+    <div [ngClass]="{
+      'col-md-7':token,
+      'col-sm-12':!token,
+      'col-lg-9':token}">
+     <ng-container *ngIf="products.length > 0 && searchStatus.length==0">
+          <!-- <div class="product-grid "> -->
+          <!-- <app-product-card *ngFor="let product of products" [product]="product"></app-product-card> -->
+         
+         <!-- </div> -->
+          <div class="container-fluid">
+         <div class="row" > <!-- gx-3 adds column gap, gy-4 adds row gap -->
+          <div class="col-12 col-sm-6 col-lg-4 col-xl-3 " *ngFor="let product of products">
+            <app-product-card [product]="product"></app-product-card>
+          </div>
+        </div>
+      </div>
+      </ng-container> 
+    </div>
+    <ng-container *ngIf="token" >
+      <div class="col-md-5 col-lg-3" style=" background-color: rgb(233,245,225);
+      ">
+            <app-cart [readOnly]="false"></app-cart>
+          </div>
+
+    </ng-container>
+    
+    </div>
+  </div>
+<app-footer/>

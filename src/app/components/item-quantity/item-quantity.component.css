@@ -1,0 +1,15 @@
+.btn-icon{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+   border: none;
+   outline: none;
+   font-size: 20px;
+   font-weight: bold;
+  
+   background-color: white;
+}
+.btn-icon:active{
+    background-color: rgba(162, 225, 227,0.6);
+    color:white;
+}

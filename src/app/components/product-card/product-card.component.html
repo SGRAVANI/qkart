@@ -1,0 +1,25 @@
+<div class="card">
+    <img [src]="product.image" [alt]="product.name" />
+     <div class="card-body">
+      <p class="subtitle1">{{ product.name }}</p>
+      <h6 class="cost">{{ "$ " + product.cost }}</h6>
+    
+      <app-rating [rating]="product.rating"></app-rating>
+    
+ </div>
+  <div class="card-actions">
+    <button class="card-button btn btn-filled" (click)="handleAddToCart()"> <i class="bi bi-cart3 mr-1 ml-1"></i>ADD TO CART</button>
+  </div>
+
+</div>
+<!-- <div class="card" style="width: 18rem;">
+  <img [src]="product.image" class="card-img-top" alt="product.name">
+  <div class="card-body">
+    <h5 class="card-title">{{product.name}}</h5>
+    <p class="card-text">{{"$ "+product.cost}}</p>
+    <button class="btn btn-primary" (click)="handleAddToCart()">ADD TO CART</button>
+  </div>
+</div> -->
+<ng-container *ngIf="message" >
+  <app-display-alert [variant]="variant" [message]="message" />
+</ng-container>

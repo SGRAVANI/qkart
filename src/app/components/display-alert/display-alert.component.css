@@ -1,0 +1,72 @@
+/* .alert-container{
+    padding:10px 40px;
+     
+   position: absolute;
+   left:50%;
+   transform: translateX(-50%);   
+   bottom:1rem;
+   animation: slideUp 0.5s ease-out forwards;
+}
+.alert-warning{
+    background-color: rgb(255, 174, 0);
+    color:white;
+
+}
+
+@keyframes slideUp {
+    from {
+      bottom: 0;
+      opacity: 0;
+    }
+    to {
+      bottom: 2rem;
+      opacity: 1;
+    }
+  } */
+  .alert-container {
+    padding: 10px 40px;
+    position: fixed;
+    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0; /* Start at bottom 0 */
+    opacity: 0; /* Initially hidden */
+    animation: slideUp 0.5s ease-out forwards;
+}
+
+.alert-warning {
+    background-color: rgb(255, 174, 0);
+    color: lightyellow;
+    border-radius: 5px;
+    font-weight: bold;
+    outline:2px double rgb(255, 174, 0);
+}
+.alert-danger {
+    background-color: rgb(240, 58, 58);
+    color:rgb(250, 212, 218);
+    border-radius: 5px;
+    font-weight: bold;
+    outline:2px double rgb(240, 58, 58);
+}
+
+.alert-success {
+    background-color: rgb(18, 210, 18);
+    color: rgb(198, 247, 198);
+    border-radius: 5px;
+    font-weight: bold;
+    outline:2px double rgb(18, 210, 18);
+}
+
+
+
+/* Slide up animation */
+@keyframes slideUp {
+    from {
+        bottom: 0;
+        opacity: 0.7;
+    }
+    to {
+        bottom: 2rem;
+        opacity: 1;
+    }
+}

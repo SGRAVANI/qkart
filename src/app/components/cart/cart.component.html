@@ -1,0 +1,84 @@
+<div class="cart">
+      <ng-container *ngIf="!cartData||cartData.length==0" >
+    <div class="empty">
+        <div>
+            <i class="bi bi-cart3" style="font-size: 2.4rem;"></i>
+            <p>Cart is empty. Add more items to the cart to checkout.</p>
+        </div>
+        </div>
+</ng-container>
+
+    <ng-container *ngIf="cartData &&cartData.length>0">
+    
+        <ng-container *ngIf="readOnly==false">
+            <div style="display: flex; align-items: center; justify-content: space-between; background-color: white; padding: 1rem;">
+                <p>Order Total</p>
+                <p style="font-size: x-large; font-weight: bold;">${{findTotal()}}</p>
+               </div>
+        </ng-container>
+      
+    
+        <div style="display: flex; align-items: flex-start;flex-direction: column;background-color: white;"  >
+                <ng-container *ngFor="let item of cartData " >
+                    <app-cart-item-card [cartItem]="item" [readOnly]="readOnly" />
+                </ng-container>
+        </div>
+        <ng-container *ngIf="readOnly==true">
+            <div style="display: flex; align-items: center; justify-content: space-between; background-color: white; padding: 1rem;">
+                <p>Order Total</p>
+                <p style="font-size: x-large; font-weight: bold;">${{findTotal()}}</p>
+               </div>
+        </ng-container>
+      
+    </ng-container>
+    <ng-container *ngIf="cartData && cartData.length>0 && readOnly==false">
+        <div style="display: flex; justify-content: flex-end;" class="cart-footer">
+            <button
+              
+              class="checkout-btn btn btn-filled mt-2 "
+              (click)="redirectToCheckout();"
+            >
+            <i class="bi bi-cart-check-fill "></i>  CHECKOUT
+        </button>
+    </div>
+    </ng-container>
+
+
+</div>
+<ng-container *ngIf="readOnly" >
+    <div class="cart cart-footer"  style="color:#3C3C3C"  >
+      
+        <h4 >Order Details </h4>
+        <div class="cart-row"
+         
+         style="padding: 0.5rem;"        
+        >
+          <div>Products</div>
+          <div>{{ getTotalItems()}}</div>  
+    </div>
+       <div class="cart-row"
+         style="padding:0.5rem"
+         
+        >
+          <div>Subtotal</div>
+          <div> ${{findTotal()}}</div>  
+</div>
+       <div class="cart-row"
+          style="padding:0.5rem"
+         
+        >
+          <div>Shipping Chages</div>
+          <div>$0</div>  
+</div>
+       <div class="cart-row"
+          style="padding: 0.5ren;font-weight: 700;font-size: 20px;"
+          
+        >
+          <div >Total</div>
+          <div>${{findTotal()}}</div>  
+</div>
+</div>
+</ng-container>
+
+      
+      

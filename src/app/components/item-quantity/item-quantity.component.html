@@ -1,0 +1,34 @@
+<ng-container *ngIf="isReadOnly" >
+    <div  style="display: flex;align-items: center;" >
+    
+    <div style="padding: 0.5rem;"  data-testid="item-qty">
+      {{"Qty:"+cartItem.qty}}
+    </div>
+    
+</div>
+</ng-container>
+<ng-container *ngIf="!isReadOnly">
+  <div style="display: flex; align-items: center;">
+    <button  (click)="handleDelete();" class="btn-icon">
+      <i class="bi bi-dash-lg" style="color:var(--qkart-primary);"></i></button>
+   
+    <div  style="padding: 0.5rem;"  data-testid="item-qty">
+      {{cartItem.qty}}
+    </div>
+    <button (click)="handleAdd()" class="btn-icon" style="color:var(--qkart-primary)" ><i class="bi bi-plus-lg"></i></button>
+   
+   
+  </div>
+</ng-container>
+<!-- return   isReadOnly?  ( ):( <Stack direction="row" alignItems="center">
+        <IconButton size="small" color="primary" onClick={()=>{handleDelete(productId,"delete")}}>
+          <RemoveOutlined />
+        </IconButton>
+        <Box padding="0.5rem" data-testid="item-qty">
+          {value}
+        </Box>
+        <IconButton size="small" color="primary" onClick={()=>{handleAdd(productId,"add")}}>
+          <AddOutlined />
+        </IconButton>
+      </Stack>)
+     -->

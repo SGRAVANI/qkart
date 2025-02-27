@@ -1,0 +1,72 @@
+<div class="header">
+    <div class="header-title" (click)="redirectToHome();">
+        <img src="../../../../assets/logo_light.svg" alt="Qkart-icon"/>
+    </div>
+  
+        
+        <ng-container  *ngIf="isLoginPage==true" >
+          <ng-content ></ng-content>
+        </ng-container>
+        
+          
+      
+        <ng-container  *ngIf="isLoginPage==false&&searchNotRequired==false" >
+      <div class="search-desktop" >
+        <div class="input-group " style="width:24rem;">
+           
+            <input type="text" class="form-control" aria-label="enter item to search" placeholder="search for item" id="searchField" (input)="handleChange($event)">
+            <div class="input-group-append" style="background-color: white;">
+              <span class="input-group-text " ><i class="bi bi-search hover-icon" style="color:#18aa84;" ></i></span>
+            </div>
+          </div>
+    </div>
+  </ng-container>
+  <ng-container  *ngIf="isLoginPage==false">
+      <div class="btn-box" #elseBlock>
+        <ng-container *ngIf="!userName" >
+          <button type="button" 
+          class="btn btn-outline btn-sm"
+          (click)="redirectToLogin()"
+          >Login</button>
+  <button type="button" class="btn  btn-filled btn-sm" 
+   (click)="redirectToRegister()"
+  >Register</button>
+
+
+        </ng-container>
+        
+<ng-container *ngIf="userName">
+  <div class="avatar-container">
+    <img src="../../../../assets/avatar.png" [alt]="userName"  class="avatar-image"/>
+  </div>
+  <p>{{userName}}</p>
+  <button type="button" 
+class="btn btn-outline btn-sm"
+(click)="clear()"
+>LOGOUT</button>
+
+</ng-container>
+  </div>
+
+</ng-container>
+<!-- <ng-container *ngIf="isLoginPage==false"> -->
+
+    </div>
+  <!-- </ng-container> -->
+   <ng-container *ngIf="searchNotRequired==false">
+    <div class="search-mobile" style=" padding: 1rem;">
+      <div class="input-group " style="width:100%;">
+         
+          <input type="text" class="form-control" aria-label="enter item to search" placeholder="search for item" (input)="handleChange($event)">
+          <div class="input-group-append" style="background-color: white;">
+            <span class="input-group-text " ><i class="bi bi-search hover-icon" style="color:#18aa84;" ></i></span>
+          </div>
+  
+        </div>
+  </div>
+  
+    
+   </ng-container>
+  
+
+      

@@ -1,0 +1,35 @@
+.sm{
+    width: 30px;
+    height: 30px;
+    border-width:5px; 
+}
+.lg{
+    width: 60px;
+    height: 60px;
+    border-width:8px; 
+}
+.circular-progress{
+    
+   border-style: solid ;
+   border-top-color: var(--qkart-primary);
+  
+   border-left-color: rgb(64,211,100) ;
+   border-right-color:rgb(162,230,65);
+   border-bottom-color:rgb(234,231,17) ;
+   border-radius: 50%; 
+
+ 
+
+   animation: rotate 0.5s infinite linear;
+  
+
+
+}
+@keyframes rotate {
+   from{
+       transform: rotate(0deg);
+   }
+   to{
+       transform: rotate(360deg);
+   }
+}
